@@ -15,7 +15,7 @@ function PopularSearchItem ({item, setInputValue}: PopularSearchItemProps) {
                     console.log(item.toLowerCase())
                     setInputValue(item.toLowerCase())
                 }}>
-                    <img src='/src/assets/search.svg'/>
+                    <img src='/search.svg'/>
                     <div>{item.toLowerCase()}</div>
                 </button>
             </li>

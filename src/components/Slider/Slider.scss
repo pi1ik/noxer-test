@@ -1,4 +1,5 @@
-
+@import 'swiper/css';
+@import 'swiper/css/pagination';
 
 .swiper {
     width: 100%;
@@ -18,7 +19,7 @@
 }
 
 .swiper-pagination-bullet-active {
-    background-color: #292928;
+    background-color: #292928 !important;
     width: 3px !important;
     height: 3px !important;
 }

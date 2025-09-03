@@ -1,28 +1,21 @@
-
+import type { Product } from '../../contexts/DataContext/DataContext';
 import './ProductSearchPreview.scss'
 
 type ProductSearchPreviewProps = {
-    item: {
-        Product_Name: string;
-        parameters: {
-            chosen: boolean;
-            old_price: number | null;
-            price: number;
-        }[];
-        images: {
-            Image_URL: string
-        }[]
-    }; 
+    item: Product; 
     key: React.Key
 }
 
 function ProductSearchPreview ({item}: ProductSearchPreviewProps) {
 
+    console.log(item)
+
     return (
         <div className="preview">
             <div className="preview__img">
-                <img src={item.images[0].Image_URL}/>
+                <img src={item.images.length > 0 ? item.images[0].Image_URL : "/placeholder.jpg"} onError={(e) => e.currentTarget.src = "/placeholder.jpg"}/>
             </div>
+
             <div className="preview__descr">
                 <div className="preview__descr__title">{item.Product_Name
                 }</div>

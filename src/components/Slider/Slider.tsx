@@ -1,8 +1,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
+
 import './Slider.scss'
 
 type SliderProps = {
@@ -15,7 +14,7 @@ function Slider ({arr}: SliderProps) {
 
         return (
             <SwiperSlide>
-                <img src={imgSrc} onError={(e) => e.currentTarget.src = "/src/assets/placeholder.webp"}/>
+                <img src={imgSrc} onError={(e) => e.currentTarget.src = "/placeholder.jpg"}/>
             </SwiperSlide>
         )
     })
@@ -34,7 +33,7 @@ function Slider ({arr}: SliderProps) {
                     slides 
                 : 
                 <SwiperSlide>
-                    <img src="/src/assets/placeholder.webp"/>
+                    <img src="/placeholder.jpg"/>
                 </SwiperSlide>
             }
             {slides}

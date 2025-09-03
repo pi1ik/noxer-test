@@ -8,7 +8,7 @@ function Footer () {
             <p className='footer__descr'>Разработано на платформе Noxer</p>
             <button className="footer__btn">
                 <img 
-                    src="/src/assets/tg.svg" 
+                    src="/tg.svg" 
                     alt="tg-icon"
                     
                 />

@@ -5,9 +5,9 @@ function LikeButton () {
     return (
         <button onClick={() => setIsFavorite(!isFavorite)} className="like-btn">
             {isFavorite ? 
-                <img src="\src\assets\heart-active.svg" alt="like" />
+                <img src="/heart-active.svg" alt="like" />
             : 
-            <img src="\src\assets\heart-empty.svg" alt="like" />}
+            <img src="/heart-empty.svg" alt="like" />}
         </button>
     )
 }

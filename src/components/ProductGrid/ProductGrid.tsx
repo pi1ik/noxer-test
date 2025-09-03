@@ -3,83 +3,46 @@ import React from "react";
 
 import ProductCard from "../ProductCard/ProductCard";
 import Button from "../Button/Button";
+import type { Product } from "../../contexts/DataContext/DataContext";
 
 import './ProductGrid.scss'
+import { DataContext } from "../../contexts/DataContext/DataContext";
 // import Button from "../Button/Button";
 
 function ProductGrid () {
 
-      const [isLoaded, setIsLoaded] = React.useState(false);
-      const [data, setData] = React.useState<ProductsMainPageAPI | null>(null);
-      const [newData, setNewData] = React.useState<ProductsMainPageAPI | null>(null);
+      const [visibleProducts, setVisibleProducts] = React.useState<Product[]>([]);
 
-      type Label = "sale" | "premium" | "new" | "hit" | "discount" | "hot"
-
-      interface ProductsMainPageAPI {
-        // pagination: {};
-        products: {
-            Product_Name: string;
-            parameters: {
-                chosen: boolean;
-                old_price: number | null;
-                price: number;
-            }[];
-            marks: {
-                Mark_ID: number, 
-                Mark_Name: Label
-            }[]
-            images: {
-                Image_URL: string
-            }[]
-        }[];
-        status: string;
-      }
+      const allProducts = React.useContext(DataContext).fetchedProducts
 
 
-    React.useEffect(() => {
-        fetch("https://noxer-test.ru/webapp/api/products?on_main=true")
-          .then((response) => response.json())
-          .then(
-            (data) => {
-              setIsLoaded(true);
-              setData(data);
-            }
-          )
-          .catch(
-            (err) => {
-              setIsLoaded(true);
-              console.warn(err)
-            });
-      }, []);
+      React.useEffect (() => {
+        console.log(allProducts.length < visibleProducts.length)
 
-      const fetchAdditionalData = async () => {
-        await fetch("https://noxer-test.ru/webapp/api/products?on_main=false&per_page=100&page=2")
-        .then((response) => response.json())
-        .then(
-          (newData) => {
-            setIsLoaded(true);
-            setNewData(newData);
-          }
-        )
-        .catch(
-          (err) => {
-            setIsLoaded(true);
-            console.warn(err)
-          });
+        const visibleLength = visibleProducts.length
+        const sliced = allProducts.slice(visibleLength, visibleLength + 12)
+        setVisibleProducts(sliced)
+      }, [])
+
+      const showMore = () => {
+        if (allProducts.length > visibleProducts.length) {
+
+          const visibleLength = visibleProducts.length
+          console.log(visibleLength)
+          const sliced = allProducts.slice(0, visibleLength + 12)
+          console.log(sliced)
+          setVisibleProducts(sliced)
+        } else {
+          console.log('no here')
+        }
       }
 
     return (
       <>
           <div className="product-grid">
-            {isLoaded && data ? data.products.map((item, i) => {
+            {visibleProducts ? visibleProducts.map((item, i) => {
                 return <ProductCard key={i} item={item}/>
             }) : ''}
-            
-            {isLoaded && newData ? newData.products.map((item, i) => {
-                return <ProductCard key={i} item={item}/>
-            }) : ''}
-
-            
           </div>
           <div className="product-grid__btn">
               <Button 
@@ -87,19 +50,15 @@ function ProductGrid () {
                 size='large' 
                 innerText='Загрузить ещё' 
                 textColor='dark'
-                hidden={Boolean(newData)}
+                hidden={Boolean(visibleProducts.length === allProducts.length)}
                 onClickFn={() => {
                   console.log('Загрузка')
-                  fetchAdditionalData()
+                  showMore()
                 }} 
               />
-            </div>
+          </div>
       </>
-        
 
-            
-
-        
     )
 }
 

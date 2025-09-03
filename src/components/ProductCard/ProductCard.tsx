@@ -3,6 +3,7 @@ import React from "react";
 import Button from "../Button/Button"
 import Slider from "../Slider/Slider"
 import ProductCardLabel from "../ProductCardLabel/ProductCardLabel";
+import type { Product } from "../../contexts/DataContext/DataContext";
 
 import './ProductCard.scss'
 import LikeButton from "../LikeButton/LikeButton";
@@ -10,26 +11,11 @@ import LikeButton from "../LikeButton/LikeButton";
 type Label = "sale" | "premium" | "new" | "hit" | "discount" | "hot"
 
 type ProductCardProps = {
-    item: {
-        Product_Name: string;
-        parameters: {
-            chosen: boolean;
-            old_price: number | null;
-            price: number;
-        }[];
-        marks: {
-            Mark_ID: number, 
-            Mark_Name: Label
-        }[]
-        images: {
-            Image_URL: string
-        }[]
-    }; 
+    item: Product; 
     key: React.Key
 }
 
 function ProductCard ({item}: ProductCardProps) {
-
 
     const imgs = item.images.map(image => {return image.Image_URL})
 

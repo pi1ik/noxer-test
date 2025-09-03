@@ -17,7 +17,7 @@ function CategoryCard ({item}: CategoryCardProps) {
     return (
         <div className="category-card">
             {/* <img src="https://snipp.ru/uploads/images/donut.png" alt="" className="category-carg__img" /> */}
-            <img src={item.Category_Image === "" ? "/src/assets/placeholder.webp" : item.Category_Image} alt={item.Category_Name} onError={(e) => e.currentTarget.src = "/src/assets/placeholder.webp"} className="category-card__img" />
+            <img src={item.Category_Image === "" ? "/placeholder.jpg" : item.Category_Image} alt={item.Category_Name} onError={(e) => e.currentTarget.src = "/placeholder.jpg"} className="category-card__img" />
             <div className="category-card__title">{item.Category_Name}</div>
         </div>
     )
