@@ -1,0 +1,21 @@
+.banner-wrapper {
+    
+    position: relative;
+    width: calc(100vw - 10px);
+    height: calc((100vw - 10px)/2.5);
+    border-radius: 20px;
+    overflow: hidden;
+
+    .swiper-pagination-bullet {
+        --swiper-pagination-bullet-inactive-color: #FFFFFF4D;
+    }
+    
+    .swiper-pagination-bullet-active {
+        background-color: #FFFFFF;
+    }
+    
+    .swiper-pagination-bullet, .swiper-pagination-bullet-active-prev, .swiper-pagination-bullet-active-prev-prev, .swiper-pagination-bullet-active-next, .swiper-pagination-bullet-active-next-next {
+        transform: scale(1) !important;
+    }
+    
+}

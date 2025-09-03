@@ -1,0 +1,43 @@
+.container {
+  position: relative;
+}
+.wrapper {
+  width: 100%;
+  &__navigation-top {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  &__search-input {
+    margin-bottom: 15px;
+  }
+  &__banner {
+    margin-bottom: 10px;
+  }
+  &__category {
+    margin-bottom: 15px;
+  }
+  &__product-grid {
+    margin-bottom: 30px;
+  }
+  &__footer {
+    margin-bottom: 80px;
+  }
+}
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 3px 7px 3px 3px;
+    border-radius: 40px;
+    background-color: #FFFFFF;
+    text-decoration: none;
+    color: #666666
+  }
+}

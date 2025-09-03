@@ -1,0 +1,51 @@
+
+
+.button {
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    width: min-content;
+    font-weight: 500;
+    border: 0;
+    
+    &_large {
+        height: 34px;
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        font-size: 12px;
+    }
+    &_small {
+        height: 30px;
+        padding: 10px 14px;
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 8px;
+    }
+    &_dark {
+        background-color: #C6C6C64D;
+    }
+    &_light {
+        background-color: #F1F1F1;
+    }
+    &_black {
+        background-color: #292928;
+    }
+    &_lightText {
+        color: #666666;
+    }
+    &_darkText {
+        color: #292928;
+    }
+    &_whiteText {
+        color: #FFFFFF;
+    }
+
+    &_hidden {
+        display: none;
+    }
+}

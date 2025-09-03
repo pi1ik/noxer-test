@@ -1,0 +1,38 @@
+.product-card__label {
+    box-sizing: border-box;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    width: min-content;
+    border: 0;
+    height: 22px;
+    padding: 4px 8px;
+    font-family: "Mulish", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    &_sale {
+        color: #FFFFFF;
+        background-color: #FFCA28;
+    }
+    &_premium {
+        color: #FFFFFF;
+        background-color: #292928;
+    }
+    &_new {
+        color: #FFFFFF;
+        background-color: #45B649;
+    }
+    &_hit {
+        color: #FFFFFF;
+        background-color: #FF6723;
+    }
+    &_discount {
+        color: #FFFFFF;
+        background-color: #5ab4ec;
+    }
+    &_hot {
+        color: #FFFFFF;
+        background-color: #ee2222;
+    }
+}
