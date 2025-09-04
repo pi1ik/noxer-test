@@ -1,7 +1,11 @@
 import React from "react"
+
 import './LikeButton.scss'
+
 function LikeButton () {
+
     const [isFavorite, setIsFavorite] = React.useState(false)
+    
     return (
         <button onClick={() => setIsFavorite(!isFavorite)} className="like-btn">
             {isFavorite ? 

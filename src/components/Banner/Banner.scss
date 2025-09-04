@@ -1,5 +1,4 @@
 .banner-wrapper {
-    
     position: relative;
     width: calc(100vw - 10px);
     height: calc((100vw - 10px)/2.5);
@@ -17,5 +16,4 @@
     .swiper-pagination-bullet, .swiper-pagination-bullet-active-prev, .swiper-pagination-bullet-active-prev-prev, .swiper-pagination-bullet-active-next, .swiper-pagination-bullet-active-next-next {
         transform: scale(1) !important;
     }
-    
 }

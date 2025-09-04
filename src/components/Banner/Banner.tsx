@@ -1,8 +1,10 @@
-
 import React from 'react'
+
 import Slider from '../Slider/Slider'
-import './Banner.scss'
+
 import { DataContext } from '../../contexts/DataContext/DataContext'
+
+import './Banner.scss'
 
 function Banner () {
     const fetchedActions = React.useContext(DataContext).fetchedActions

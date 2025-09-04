@@ -1,3 +1,18 @@
 @import 'swiper/css';
 @import "swiper/css/pagination";
 @import 'swiper/css/free-mode';
+
+.category-carousel__wrapper {
+    
+    .swiper {
+        padding: 10px 0;
+
+        &-slide {
+            transition: 0.5s all;
+        }
+
+        .card_active {
+            margin: 0 25px 0 20px !important;
+        }
+    }
+}

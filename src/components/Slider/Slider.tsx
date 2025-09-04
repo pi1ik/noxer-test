@@ -1,4 +1,3 @@
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 
@@ -14,13 +13,12 @@ function Slider ({arr}: SliderProps) {
 
         return (
             <SwiperSlide>
-                <img src={imgSrc} onError={(e) => e.currentTarget.src = "/placeholder.jpg"}/>
+                <img src={imgSrc} onError={(e) => e.currentTarget.src = "/placeholder.jpg"} alt="slider-img"/>
             </SwiperSlide>
         )
     })
     
     return (
-
         <Swiper
             pagination={{
                 dynamicBullets: true,
@@ -33,15 +31,12 @@ function Slider ({arr}: SliderProps) {
                     slides 
                 : 
                 <SwiperSlide>
-                    <img src="/placeholder.jpg"/>
+                    <img src="/placeholder.jpg" alt="slider-img"/>
                 </SwiperSlide>
             }
             {slides}
         </Swiper>
-
-        
     )
-    
 }
 
 export default Slider

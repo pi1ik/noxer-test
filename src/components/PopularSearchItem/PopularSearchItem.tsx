@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './PopularSearchItem.scss'
 
@@ -12,10 +11,9 @@ function PopularSearchItem ({item, setInputValue}: PopularSearchItemProps) {
         return (
             <li  className='search__popular__list-item'>
                 <button className='search__popular__list-item__link' onClick={() => {
-                    console.log(item.toLowerCase())
                     setInputValue(item.toLowerCase())
                 }}>
-                    <img src='/search.svg'/>
+                    <img src='/search.svg' alt="search"/>
                     <div>{item.toLowerCase()}</div>
                 </button>
             </li>

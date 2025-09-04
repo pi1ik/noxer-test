@@ -9,8 +9,14 @@ export type Product = {
       old_price: number | null;
       price: number;
   }[];
+  categories: {
+      Category_ID: number;
+      Category_Image: string,
+      Category_Name: string,
+      sort_order: number;
+  }[];
   marks: {
-      Mark_ID: number, 
+      Mark_ID: number;
       Mark_Name: Label
   }[]
   images: {

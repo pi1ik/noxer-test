@@ -8,16 +8,34 @@
     text-align: center;
     overflow: hidden;
     text-wrap: nowrap;
+    padding: 0;
+    border: none;
+    border-radius: 15px;
+    position: relative;
+    background-color: transparent;
+    transition: 2s all;
+
+    &_active {
+        z-index: 5;
+        transition: 0.5s all;
+        transform: scale(1.07);
+        .category-card__title {
+            font-weight: 700;
+        }
+    }
+
     img {
         width: 100%;
         height: calc((100vw - 30px)/5);
         border-radius: 15px;
     }
+
     &__title {
         width: 100%;
         font-size: 12px;
         font-weight: 500;
         position: relative;
+        
         &::after {
             content: '';
             display:block;

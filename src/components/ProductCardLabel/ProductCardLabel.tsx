@@ -1,4 +1,3 @@
-
 import './ProductCardLabel.scss'
 
 type Label = "sale" | "premium" | "new" | "hit" | "discount" | "hot"
@@ -34,7 +33,6 @@ function ProductCardLabel ({label}: ProductCardLabelProps) {
             <div className='product-card__label product-card__label_hot'>hot</div>
         )
     }
-
 }
 
 export default ProductCardLabel

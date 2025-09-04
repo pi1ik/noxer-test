@@ -3,29 +3,37 @@
 }
 .wrapper {
   width: 100%;
+
   &__navigation-top {
     margin-top: 30px;
     margin-bottom: 10px;
   }
+
   &__search-input {
     margin-bottom: 15px;
   }
+
   &__banner {
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
+
   &__category {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
+
   &__product-grid {
     margin-bottom: 30px;
   }
+
   &__footer {
     margin-bottom: 80px;
   }
 }
+
 .navbar-top {
   display: flex;
   justify-content: space-between;
+  
   &__link {
     display: flex;
     align-items: center;

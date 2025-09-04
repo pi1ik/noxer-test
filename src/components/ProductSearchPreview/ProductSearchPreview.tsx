@@ -1,4 +1,5 @@
 import type { Product } from '../../contexts/DataContext/DataContext';
+
 import './ProductSearchPreview.scss'
 
 type ProductSearchPreviewProps = {
@@ -8,12 +9,10 @@ type ProductSearchPreviewProps = {
 
 function ProductSearchPreview ({item}: ProductSearchPreviewProps) {
 
-    console.log(item)
-
     return (
         <div className="preview">
             <div className="preview__img">
-                <img src={item.images.length > 0 ? item.images[0].Image_URL : "/placeholder.jpg"} onError={(e) => e.currentTarget.src = "/placeholder.jpg"}/>
+                <img src={item.images.length > 0 ? item.images[0].Image_URL : "/placeholder.jpg"} alt="preview" onError={(e) => e.currentTarget.src = "/placeholder.jpg"}/>
             </div>
 
             <div className="preview__descr">
@@ -33,11 +32,8 @@ function ProductSearchPreview ({item}: ProductSearchPreviewProps) {
                     
                 </div>
             </div>
-            
-
         </div>
     )
-
 }
 
 export default ProductSearchPreview

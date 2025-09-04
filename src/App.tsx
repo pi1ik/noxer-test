@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Button from './components/Button/Button'
 import SearchInput from './components/Search/Search'
 import ProductGrid from './components/ProductGrid/ProductGrid'
@@ -6,18 +7,19 @@ import Banner from './components/Banner/Banner'
 import Footer from './components/Footer/Footer'
 import CategoryCardCarousel from './components/CategoryCardCarousel/CategoryCardCarousel'
 import NavBarBottom from './components/NavBarBottom/NavBarBottom'
+
 import fetchData from './utils/fetchData'
-import { DataContextProvider } from './contexts/DataContext/DataContextProvider'
 
 import type { Product, Category, Action } from './contexts/DataContext/DataContext'
+import { DataContextProvider } from './contexts/DataContext/DataContextProvider'
+import { FiltersContextProvider } from './contexts/FiltersContext/FiltersContextProvider'
 
 import './App.scss'
-
-
 
 function App() {
 
   const [isOpen, setIsOpen] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(true)
 
   const [fetchedProducts, setFetchedProducts] = React.useState<Product[]>([])
   const [fetchedCategories, setFetchedCategories] = React.useState<Category[]>([])
@@ -25,13 +27,10 @@ function App() {
   const [fetchedActions, setFetchedActions] = React.useState<Action[]>([])
   const [fetchedFastSearch, setFetchedFastSearch] = React.useState<string[]>([])
 
-  const [isLoading, setIsLoading] = React.useState(true)
-
   React.useEffect(() => {
     setIsLoading(true)
     fetchData()
       .then((res) => {
-        console.log(res)
         setFetchedProducts(res.products)
         setFetchedCategories(res.categories)
         setFetchedMarks(res.product_marks)
@@ -42,10 +41,6 @@ function App() {
       .catch((e) => console.warn(e))
     ;
   }, [])
-
-  React.useEffect(() => {
-    console.log(isLoading)
-  }, [isLoading])
 
   return (
     <>
@@ -77,7 +72,7 @@ function App() {
                   textColor='light'
                   textML={5} 
                   onClickFn={() => {
-                    console.log('Закрыть')
+                    console.log('•••')
                     setIsOpen(false)
                   }} 
                   iconSrc='/expand.svg'
@@ -95,13 +90,17 @@ function App() {
                   <Banner/>
                 </div>
 
-                <div className="wrapper wrapper__category">
-                  <CategoryCardCarousel/>
-                </div>
+                <FiltersContextProvider >
+                  <div className="wrapper wrapper__category">
+                    <CategoryCardCarousel/>
+                  </div>
+                  
+                  <div className="wrapper wrapper__product-grid">
+                    <ProductGrid/>
+                  </div>
+                </FiltersContextProvider>
+
                 
-                <div className="wrapper wrapper__product-grid">
-                  <ProductGrid/>
-                </div>
 
                 <div className="wrapper wrapper__footer">
                   <Footer/>

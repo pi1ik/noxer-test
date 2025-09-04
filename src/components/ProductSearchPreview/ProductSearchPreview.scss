@@ -2,6 +2,7 @@
     display: flex; 
     justify-content: space-between;
     position: relative;
+
     &::after {
         content: '';
         width: 100%;
@@ -10,41 +11,49 @@
         bottom: -10px;
         background-color: #2929284D;
     }
+
     &:last-child {
       &::after {
         display: none;
       } 
     }
+
     &__img {
         width: 50px;
         height: 50px;
         object-fit: cover;
         border-radius: 10px;
+
         img {
             width: 100%;
             height: 100%;
         }
     }
+
     &__descr {
         display: flex;
         flex-direction: column;
         height: 50px;
         width: calc(100% - 70px);
         justify-content: space-between;
+
         &__price {
             display: flex;
             align-items: center;
             gap: 5px;
+
             &__current {
                 font-weight: 700;
                 font-size: 16px;
             }
+
             &__old {
                 color: #2929284D;
                 font-size: 10px;
                 font-weight: 500;
                 text-decoration: line-through;
             }
+
             &__discount {
                 color: #F24131;
                 font-size: 10px;
@@ -52,5 +61,4 @@
             }
         }
     }
-    
 }

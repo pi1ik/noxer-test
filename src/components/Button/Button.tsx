@@ -1,4 +1,3 @@
-
 import './Button.scss'
 
 type Size = 'large' | 'small'
@@ -23,7 +22,7 @@ function Button({ size, color, textColor, hidden = false, disabled = false, onCl
     return (
         <button className={`button button_${color} button_${size} button_${textColor}Text ${hidden ? 'button_hidden': ''}`} onClick={onClickFn} disabled={disabled}>
             { iconSrc ?
-                <img src={iconSrc}/>
+                <img src={iconSrc} alt="icon"/>
                 : ''
             }
             { innerText ? 

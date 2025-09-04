@@ -1,6 +1,4 @@
-
 .search__popular__list-item {
-    
     display: flex;
     width: 100%;
     
@@ -13,10 +11,12 @@
         border: none;
         background-color: transparent;
     }
+
     img {
         width: 10px;
         height: 10px;
     }
+    
     div {
         box-sizing:border-box;
         padding: 10px 0;

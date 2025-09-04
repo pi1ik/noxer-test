@@ -8,5 +8,8 @@ type DataContextProviderProps = {
     props: DataContextType
 };
 export const DataContextProvider = ({ children, props }: DataContextProviderProps) => {
-    return <DataContext.Provider value={props}>{children}</DataContext.Provider>;
+    return (
+        <DataContext.Provider value={props}>
+            {children}
+        </DataContext.Provider>)
 };

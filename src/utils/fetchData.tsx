@@ -2,8 +2,6 @@ import type { Product, Category, Action } from "../contexts/DataContext/DataCont
 
 export default async function fetchData () {
 
-
-
     type ApiData = {
         categories: Category[],
         product_marks: object[],
@@ -24,7 +22,6 @@ export default async function fetchData () {
     await fetch("https://noxer-test.ru/webapp/api/products?on_main=true")
       .then((response) => response.json())
       .then((response) => {
-        console.log(response)
         data.categories = response.categories
         data.product_marks = response.product_marks
         data.products = [...data.products, ...response.products]

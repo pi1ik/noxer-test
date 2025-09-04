@@ -4,8 +4,9 @@ import PopularSearchItem from "../PopularSearchItem/PopularSearchItem";
 import ProductSearchPreview from "../ProductSearchPreview/ProductSearchPreview";
 
 import type { Product } from "../../contexts/DataContext/DataContext";
-import "./Search.scss";
 import { DataContext } from "../../contexts/DataContext/DataContext";
+
+import "./Search.scss";
 
 type SearchInputProps = {
   isOpen: boolean;
@@ -20,7 +21,6 @@ function SearchInput({isOpen, setIsOpen}: SearchInputProps) {
   const fastSearch = React.useContext(DataContext).fetchedFastSearch
   const allProducts = React.useContext(DataContext).fetchedProducts
 
-
   const inputRef = React.useRef(null);
 
   useEffect(() => {
@@ -30,8 +30,6 @@ function SearchInput({isOpen, setIsOpen}: SearchInputProps) {
     }
     
   }, [searchTerm]);
-
-  
 
   const filterProducts = (
     searchText: string,
@@ -49,14 +47,6 @@ function SearchInput({isOpen, setIsOpen}: SearchInputProps) {
     return filtered;
   };
 
-  // useEffect(() => {
-  //   const Debounce = setTimeout(() => {
-
-  //   }, 300);
-
-  //   return clearTimeout(Debounce);
-  // }, [isLoaded, searchTerm]);
-
   const renderPopularSearchList = (arr: string[]) => {
     return (
       <ul className="search__popular__list">
@@ -68,7 +58,6 @@ function SearchInput({isOpen, setIsOpen}: SearchInputProps) {
   };
 
   const renderProductSearchPreviewList = (arr: Product[] | null) => {
-    console.log(arr)
     return (
       <ul className="search__product-preview__list">
         {arr && arr.length > 0 ? arr.map((item, i) => {
@@ -82,7 +71,7 @@ function SearchInput({isOpen, setIsOpen}: SearchInputProps) {
     <>
       <div className={`search ${isOpen ? 'search_fixed' : ''}`}>
         <div className="search__input">
-          <img src="/search.svg" />
+          <img src="/search.svg" alt="search"/>
           <input
             type="text"
             name="search"
@@ -101,7 +90,7 @@ function SearchInput({isOpen, setIsOpen}: SearchInputProps) {
             }}
           />
           <Button
-            hidden={!isInputFocused}
+            hidden={!isInputFocused && !searchTerm}
             color="black"
             size="small"
             onClickFn={() => console.log("Перейти")}

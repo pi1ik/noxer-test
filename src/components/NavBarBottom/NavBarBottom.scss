@@ -1,31 +1,36 @@
 .navbar-bottom {
+
     &__wrapper {
-    width: calc(100% - 10px);
-    height: 53px;
-    box-sizing: border-box;
-    border: 1px solid #6C6C6C1A;
-    border-radius: 30px;
-    background-color: #FFFFFF4D;
-    backdrop-filter: blur(30px);
-    position: fixed;
-    bottom: 18px;
-    z-index: 20;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+        width: calc(100% - 10px);
+        height: 53px;
+        box-sizing: border-box;
+        border: 1px solid #6C6C6C1A;
+        border-radius: 30px;
+        background-color: #FFFFFF4D;
+        backdrop-filter: blur(30px);
+        position: fixed;
+        bottom: 18px;
+        z-index: 20;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
+    
     &__btn {
         background-color: transparent;
         border: none;
-
     }
+
     &__icon {
         width: 21px;
         height: 21px;
+
         path {
             stroke: #85858B;
         }
+
         &_active {
+            
             path {
                 stroke: #292928
             }

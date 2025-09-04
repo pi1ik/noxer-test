@@ -1,5 +1,3 @@
-
-
 import './Footer.scss'
 
 function Footer () {
@@ -10,14 +8,11 @@ function Footer () {
                 <img 
                     src="/tg.svg" 
                     alt="tg-icon"
-                    
                 />
                 noxerai_bot
             </button>
-
         </div>
     )
-
 }
 
 export default Footer

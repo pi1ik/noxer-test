@@ -1,31 +1,19 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode } from 'swiper/modules';
+
+import CategoryCard from '../CategoryCard/CategoryCard'
+
+import { DataContext } from "./../../contexts/DataContext/DataContext";
+import { FiltersContext } from '../../contexts/FiltersContext/FiltersContext';
 
 import './CategoryCardCarousel.scss'
-
-import { FreeMode } from 'swiper/modules';
-import CategoryCard from '../CategoryCard/CategoryCard'
-import { DataContext } from "./../../contexts/DataContext/DataContext";
 
 function CategoryCardCarousel () {
 
     const fetchedCategories = React.useContext(DataContext).fetchedCategories
 
-    React.useEffect(() => {
-        console.log(fetchedCategories)
-        // fetch("https://noxer-test.ru/webapp/api/products?on_main=true")
-        //     .then((response) => response.json())
-        //     .then(
-        //     (data) => {
-        //         setIsLoaded(true);
-        //         setData(data);
-        //     }
-        //     )
-        //     .catch((err) => {
-        //     setIsLoaded(true);
-        //     console.warn(err)
-        //     });
-    }, []);
+    const activeFilterState = React.useContext(FiltersContext)
 
   return (
     <div className='category-carousel__wrapper'>
@@ -35,13 +23,13 @@ function CategoryCardCarousel () {
             spaceBetween={5}
             freeMode={true}
             modules={[FreeMode]}
-            className="mySwiper"
+            
         >
             {
                 fetchedCategories.map(item => {
 
                     return (
-                        <SwiperSlide key={item.Category_ID}>
+                        <SwiperSlide key={item.Category_ID} className={`${item.sort_order === activeFilterState.activeFilter ? 'card_active' : ''}`}>
                             <CategoryCard item={item} key={item.Category_ID}/>
                         </SwiperSlide>
                     )

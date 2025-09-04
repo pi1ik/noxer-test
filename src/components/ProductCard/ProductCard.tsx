@@ -1,12 +1,14 @@
-
 import React from "react";
+
 import Button from "../Button/Button"
 import Slider from "../Slider/Slider"
+import LikeButton from "../LikeButton/LikeButton";
+
 import ProductCardLabel from "../ProductCardLabel/ProductCardLabel";
+
 import type { Product } from "../../contexts/DataContext/DataContext";
 
 import './ProductCard.scss'
-import LikeButton from "../LikeButton/LikeButton";
 
 type Label = "sale" | "premium" | "new" | "hit" | "discount" | "hot"
 
